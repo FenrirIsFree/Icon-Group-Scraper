@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from time import sleep
 
 base_url = 'https://www.dannyboyspizza.com/'
+url = 'index'
 
 result = requests.get(base_url)
 result_html = BeautifulSoup(result.text, 'html.parser')
@@ -20,7 +21,6 @@ for link in links:
         'anchor href': link.find('a')['href']
     })
 
-# h1, h2, h3, h4, h5, h6, p, li
 # Find all header text in the homepage
 header_text = []
 h1 = result_html.find_all('h1')
