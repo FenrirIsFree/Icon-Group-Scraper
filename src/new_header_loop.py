@@ -1,4 +1,4 @@
-# https://www.dannyboyspizza.com/
+
 import requests
 from bs4 import BeautifulSoup
 from time import sleep
@@ -33,7 +33,7 @@ while url:
             result = requests.get(f'{url}')
             print(f'scraping {url}...')
             result_html = BeautifulSoup(result.text, 'html.parser')
-            
+            print(result_html)
         header_urls.append(url)
 
     if counter < len(header_links):
@@ -42,6 +42,7 @@ while url:
         url = None
     counter += 1
     sleep(2)
+    print(url)
 
 # # Maybe easier way to grab data?
 # # Initialize a dictionary to hold all headers
